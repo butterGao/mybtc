@@ -45,7 +45,7 @@ public class WebSocketClientHandler extends SimpleChannelInboundHandler<Object> 
     }
 
 	@Override
-    public void messageReceived(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
 		moniter.updateTime ();
         Channel ch = ctx.channel();
         if (!handshaker.isHandshakeComplete()) {

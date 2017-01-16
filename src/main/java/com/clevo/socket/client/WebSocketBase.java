@@ -3,6 +3,7 @@ package com.clevo.socket.client;
 import com.clevo.socket.handler.WebSocketClientHandler;
 import com.clevo.socket.service.WebSocketService;
 import com.clevo.socket.task.MoniterTask;
+import com.clevo.util.Logger;
 import com.clevo.util.MD5Util;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
@@ -16,14 +17,13 @@ import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketClientHandshakerFactory;
 import io.netty.handler.codec.http.websocketx.WebSocketVersion;
 import io.netty.handler.ssl.SslContext;
-import org.apache.log4j.Logger;
 
 import java.net.URI;
 import java.util.*;
 
 public abstract class WebSocketBase {
 
-	private Logger log = Logger.getLogger(WebSocketBase.class);
+	private Logger log = Logger.getInstance (WebSocketBase.class);
 	private WebSocketService service = null;
 	private Timer timerTask = null;
 	private MoniterTask moniter = null;
@@ -35,7 +35,7 @@ public abstract class WebSocketBase {
 	private boolean isAlive = false;
 	/** 国内站siteFlag=0,国际站siteFlag=1 */
 	private int siteFlag = 0;
-	private Set<String> subscribChannel = new HashSet<String>();
+	private Set<String> subscribChannel = new HashSet<String> ();
 
 	public WebSocketBase (String url, WebSocketService serivce) {
 		this.url = url;
@@ -95,7 +95,7 @@ public abstract class WebSocketBase {
 		log.debug("apiKey=" + apiKey + ", secretKey=" + secretKey + ", symbol="
 				+ symbol + ", orderId=" + orderId + ", contractType="
 				+ contractType);
-		Map<String, String> preMap = new HashMap<String, String>();
+		Map<String, String> preMap = new HashMap<String, String> ();
 		preMap.put("api_key", apiKey);
 		preMap.put("symbol", symbol);
 		preMap.put("order_id", String.valueOf(orderId));
@@ -123,7 +123,7 @@ public abstract class WebSocketBase {
 			Long orderId) {
 		log.debug("apiKey=" + apiKey + ", secretKey=" + secretKey + ", symbol="
 				+ symbol + ", orderId=" + orderId);
-		Map<String, String> preMap = new HashMap<String, String>();
+		Map<String, String> preMap = new HashMap<String, String> ();
 		preMap.put("api_key", apiKey);
 		preMap.put("symbol", symbol);
 		preMap.put("order_id", orderId.toString());
@@ -295,7 +295,7 @@ public abstract class WebSocketBase {
 
 	private void connect() {
 		try {
-			final URI uri = new URI(url);
+			final URI uri = new URI (url);
 			if (uri == null) {
 				return;
 			}

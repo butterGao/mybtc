@@ -1,13 +1,13 @@
 package com.clevo.socket.task;
 
 import com.clevo.socket.client.WebSocketBase;
-import org.apache.log4j.Logger;
+import com.clevo.util.Logger;
 
 import java.util.TimerTask;
 
 public class MoniterTask extends TimerTask {
 
-	private Logger log = Logger.getLogger (WebSocketBase.class);
+	private Logger log = Logger.getInstance (WebSocketBase.class);
 	private long startTime = System.currentTimeMillis ();
 	private int checkTime = 5000;
 	private WebSocketBase client = null;

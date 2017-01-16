@@ -31,10 +31,12 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-websocket')
+//	compile('org.springframework.boot:spring-boot-starter-web')
+//	compile('org.springframework.boot:spring-boot-starter-websocket')
 	// https://mvnrepository.com/artifact/io.netty/netty-all
-	compile group: 'io.netty', name: 'netty-all', version: '5.0.0.Alpha2'
+//	compile group: 'io.netty', name: 'netty-all', version: '5.0.0.Alpha2'
+	compile group: 'io.netty', name: 'netty-all', version: '4.0.23.Final'
 	compile group: 'com.alibaba', name: 'fastjson', version: '1.2.23'
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
