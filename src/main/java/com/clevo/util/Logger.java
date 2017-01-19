@@ -57,12 +57,11 @@ public class Logger {
 
 	private void push (String msg, Exception e, String type) {
 		e.printStackTrace ();
-		;
 		switch (type) {
 			case LOG_ERROR:
-				System.out.println (name + LOG_ERROR + " : " + msg + ":  " + e.toString ());
+				System.out.println (name +""+LOG_ERROR + " : " + msg + ":  " + e.toString ());
 			case LOG_INFO:
-				System.out.println (name + LOG_INFO + " : " + msg + ":  " + e.toString ());
+				System.out.println (name+""+  LOG_INFO + " : " + msg + ":  " + e.toString ());
 		}
 	}
 
